@@ -48,7 +48,6 @@ class Add:
         left_val = self.p1.evaluate(x_value)
         right_val = self.p2.evaluate(x_value)
         return Int(left_val.i + right_val.i)
-        
 
     def simplify(self):
         # TODO (Optional Exercise): Implement simplification
@@ -99,7 +98,9 @@ class Mul:
         p2_s = self.p2.simplify()
 
         # X * 0 -> 0
-        if (isinstance(p1_s, Int) and p1_s.i == 0) or (isinstance(p2_s, Int) and p2_s.i == 0):
+        if (isinstance(p1_s, Int) and p1_s.i == 0) or (
+            isinstance(p2_s, Int) and p2_s.i == 0
+        ):
             return Int(0)
         # X * 1 -> X
         if isinstance(p1_s, Int) and p1_s.i == 1:
@@ -141,7 +142,7 @@ class Sub:
         # TODO (Optional Exercise): Implement simplification
         # Examples: X - 0 -> X, 5 - 3 -> 2
         # Hint: Simplify operands first, then apply simplification rules
-                # First simplify operands
+        # First simplify operands
         p1_s = self.p1.simplify()
         p2_s = self.p2.simplify()
 
@@ -210,8 +211,6 @@ class Div:
 
         # Otherwise return simplified division
         return Div(p1_s, p2_s)
-
-        
 
 
 # Original polynomial example
